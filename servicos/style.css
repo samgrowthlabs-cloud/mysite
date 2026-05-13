@@ -1,0 +1,19 @@
+@import url('/style.css');
+
+.projects-section {
+    background: var(--bg-white);
+}
+
+.projeto-card {
+    text-align: left;
+}
+
+.projeto-meta {
+    justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+    .projeto-card {
+        text-align: left;
+    }
+}

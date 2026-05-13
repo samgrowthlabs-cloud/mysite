@@ -1,0 +1,5 @@
+@import url('/style.css');
+
+.about-card:last-of-type {
+    margin-bottom: 0;
+}
