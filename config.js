@@ -1,7 +1,6 @@
 window.SAMGROWTH_CONFIG = {
   company: {
     name: "SamGrowthLabs",
-    founder: "Bidjory Samuel",
     email: "contato@samgrowthlabs.com.br",
     foundedYear: 2026,
     tagline: "Holding de finanças e tecnologia",

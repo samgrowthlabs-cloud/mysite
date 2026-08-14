@@ -2,7 +2,7 @@
  const original=JSON.parse(JSON.stringify(window.SAMGROWTH_CONFIG||{company:{},projects:[]})),draft=localStorage.getItem('samgrowth-admin-draft');
  let state=draft?JSON.parse(draft):original;
  const $=id=>document.getElementById(id), notice=message=>{$('notice').textContent=message;setTimeout(()=>$('notice').textContent='',3500)};
- const fields={name:$('company-name'),founder:$('company-founder'),email:$('company-email'),foundedYear:$('company-year'),tagline:$('company-tagline'),description:$('company-description')};
+ const fields={name:$('company-name'),email:$('company-email'),foundedYear:$('company-year'),tagline:$('company-tagline'),description:$('company-description')};
  const syncCompany=()=>Object.entries(fields).forEach(([key,input])=>state.company[key]=key==='foundedYear'?Number(input.value):input.value.trim());
  const renderCompany=()=>Object.entries(fields).forEach(([key,input])=>input.value=state.company?.[key]??'');
  const escapeHTML=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
