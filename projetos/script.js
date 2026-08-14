@@ -1,0 +1,6 @@
+(() => {
+ const box=document.getElementById('projects-container'),list=window.SAMGROWTH_CONFIG?.projects||[]; if(!box)return;
+ const e=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+ const url=v=>{try{const u=new URL(v);return ['http:','https:'].includes(u.protocol)?u.href:'#'}catch{return '#'}};
+ box.innerHTML=list.length?list.map((p,i)=>{const tone=['teal','blue','violet','gold'].includes(p.color)?p.color:'teal';return `<a class="project-card tone-${tone}" href="${url(p.url)}" target="_blank" rel="noopener noreferrer"><div class="project-top"><span>${String(i+1).padStart(2,'0')}</span><span class="status"><i></i>${e(p.status||'Ativo')}</span></div><div class="project-art"><span>${e(p.initials||p.name?.slice(0,2))}</span><small>${e(p.year)}</small></div><div class="project-copy"><span class="project-category">${e(p.category)}</span><h2>${e(p.name)}</h2><p>${e(p.description)}</p><span class="project-action">Visitar projeto <b>↗</b></span></div></a>`}).join(''):'<p class="empty-state">Novos projetos serão apresentados em breve.</p>';
+})();

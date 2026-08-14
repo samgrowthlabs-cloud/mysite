@@ -1,10 +1,10 @@
 const theme = {
-    background: "#ffffff",
-    surface: "#fafafa",
-    text: "#1a1a1a",
-    muted: "#6b6b6b",
-    border: "#ebebeb",
-    accent: "#1a1a1a"
+    background: "#050b13",
+    surface: "#0b1422",
+    text: "#f7f9fc",
+    muted: "#a7b4c8",
+    border: "#253246",
+    accent: "#2dd4c4"
 };
 
 function applyTheme() {
@@ -25,6 +25,9 @@ function initMobileMenu() {
     if (btn && nav) {
         btn.addEventListener('click', () => {
             nav.classList.toggle('active');
+            const isOpen = nav.classList.contains('active');
+            btn.setAttribute('aria-expanded', String(isOpen));
+            document.body.classList.toggle('menu-open', isOpen);
             const spans = btn.querySelectorAll('span');
             if (nav.classList.contains('active')) {
                 spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
@@ -40,6 +43,8 @@ function initMobileMenu() {
         nav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 nav.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
                 const spans = btn.querySelectorAll('span');
                 spans[0].style.transform = 'none';
                 spans[1].style.opacity = '1';
